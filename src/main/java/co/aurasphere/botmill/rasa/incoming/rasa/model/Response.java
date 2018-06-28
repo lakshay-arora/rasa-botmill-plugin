@@ -118,7 +118,25 @@ public class Response implements Serializable {
 		}
 		return null;
 	}
-	
+
+
+
+	public List<StringEntityValue> searchForAllStringEntityValue(String value) {
+		// to get more than one entites
+		List<StringEntityValue> allEntites = new ArrayList<StringEntityValue>() ;
+		for (Entity ent : this.getEntities()) {
+			if (ent.getEntity().equals(value)) {
+				if (ent.getValue() instanceof StringEntityValue) {
+					allEntites.add((StringEntityValue) ent.getValue());
+				}
+			}
+		}
+
+		return allEntites ;
+	}
+
+
+
 	public RasaEntityValue searchForDucklingValue(String value) {
 		for (Entity ent : this.getEntities()) {
 			if (ent.getEntity().equals(value)) {

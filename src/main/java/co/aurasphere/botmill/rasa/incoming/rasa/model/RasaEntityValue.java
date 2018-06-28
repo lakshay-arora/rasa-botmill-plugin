@@ -2,9 +2,12 @@ package co.aurasphere.botmill.rasa.incoming.rasa.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public abstract class RasaEntityValue {
 	@SerializedName("value")
 	private String stringValue;
+	private List<String> allEntities ;
 
 	public String getStringValue() {
 		if(stringValue != null) {
@@ -16,4 +19,15 @@ public abstract class RasaEntityValue {
 	public void setStringValue(String stringValue) {
 		this.stringValue = stringValue;
 	}
+
+	public void setAllEntities(List<String> allEntities) {
+
+		this.allEntities = allEntities;
+	}
+
+	public List<String> getAllEntities() {
+
+		return allEntities;
+	}
 }
+
